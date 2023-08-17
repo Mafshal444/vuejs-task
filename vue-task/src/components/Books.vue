@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div style="display: flex; align-items: center; justify-content: flex-start; align-content: stretch; flex-direction: column;">
-      <div style="width: 55%; padding: 15px;">
+    <div class="bl-form-wrapper">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.title"
@@ -12,7 +12,7 @@
 					<span v-if="!$v.book.form.title.required">Title is required</span>
 				</p>
       </div>
-      <div style="width: 55%; padding: 15px;">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.description"
@@ -23,7 +23,7 @@
 					<span v-if="!$v.book.form.description.required">Description is required</span>
 				</p>
       </div>
-      <div style="width: 55%; padding: 15px;">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.due_date"
@@ -34,13 +34,13 @@
 					<span v-if="!$v.book.form.due_date.required">Due Date is required</span>
 				</p>
       </div>
-      <div style="width: 55%; padding: 15px;">
+      <div class="bl-input-wrapper">
         <b-form-select v-model="book.form.status" :options="options"></b-form-select>
         <p v-if="book.form.submitted && $v.book.form.status.$invalid">
 					<span v-if="!$v.book.form.status.required">status is required</span>
 				</p>
       </div>
-      <div style="width: 55%; padding: 15px;">
+      <div class="bl-input-wrapper">
         <b-button variant="primary" @click="addBook">Add Book</b-button>
       </div>
     </div>
@@ -151,5 +151,15 @@ export default {
 </script>
 
 <style>
-
+.bl-form-wrapper{
+  display: flex; 
+  align-items: center; 
+  justify-content: flex-start; 
+  align-content: stretch; 
+  flex-direction: column;
+}
+.bl-input-wrapper{
+  width: 55%; 
+  padding: 15px;
+}
 </style>

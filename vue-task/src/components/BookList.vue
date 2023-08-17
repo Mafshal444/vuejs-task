@@ -8,7 +8,7 @@
       per-page=5
     >
     <template v-slot:cell(action)="data">
-      <div style="display: flex; justify-content: space-evenly;">
+      <div class="table-btn-wrapper">
         <div>
           <b-button variant="primary" size="sm" class="mb-2" @click="updateBook(data), $event.preventDefault()">
             EDIT
@@ -89,5 +89,8 @@ export default {
 </script>
 
 <style>
-
+.table-btn-wrapper{
+  display: flex; 
+  justify-content: space-evenly;
+}
 </style>

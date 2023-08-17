@@ -1,15 +1,8 @@
 <template>
 	<modal :name="modalName" @before-open="onBeforeOpen($event)" @before-close="onBeforeClose()" :scrollable="true">
-		<div style="
-      padding: 25px;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      flex-wrap: nowrap;
-      align-items: center;
-    ">
+		<div class="bl-form-wrapper">
       <h1>Update Book</h1>
-      <div style="width: 45%; padding: 10px;">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.title"
@@ -20,7 +13,7 @@
 					<span v-if="!$v.book.form.title.required">Title is required</span>
 				</p>
       </div>
-      <div style="width: 45%; padding: 10px;">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.description"
@@ -31,7 +24,7 @@
 					<span v-if="!$v.book.form.description.required">Description is required</span>
 				</p>
       </div>
-      <div style="width: 45%; padding: 10px;">
+      <div class="bl-input-wrapper">
         <b-form-input
           id="input-live"
           v-model="book.form.due_date"
@@ -42,17 +35,13 @@
 					<span v-if="!$v.book.form.due_date.required">Due Date is required</span>
 				</p>
       </div>
-      <div style="width: 45%; padding: 10px;">
+      <div class="bl-input-wrapper">
         <b-form-select v-model="book.form.status" :options="options"></b-form-select>
         <p v-if="book.form.submitted && $v.book.form.status.$invalid">
 					<span v-if="!$v.book.form.status.required">status is required</span>
 				</p>
       </div>
-      <div style="
-        display: flex;
-        flex-direction: row;
-        align-items: flex-start;
-      ">
+      <div class="bl-modal-btn-wrapper">
         <div style="padding: 10px;">
           <b-button variant="primary" @click="updateBook">Update</b-button>
         </div> 
@@ -175,5 +164,9 @@ export default {
   height: 400px !important;
 }
 
-
+.bl-modal-btn-wrapper{
+  display: flex;
+  flex-direction: row;
+  align-items: flex-start;
+}
 </style>
